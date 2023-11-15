@@ -22,6 +22,7 @@ body {
 }
 
 .styledInput {
+  box-sizing: border-box;
   font-family: inherit;
   display: flex;
   text-align: center;
