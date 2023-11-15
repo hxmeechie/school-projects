@@ -9,8 +9,7 @@ const changePlaceholderAndConversion = () => {
 
   currentConversion = currentConversion === "binary" ? "decimal" : "binary";
 
-  inputSelector.placeholder =
-    currentConversion === "binary" ? "Podaj liczbę dziesiętną" : "Podaj liczbę binarną";
+  inputSelector.placeholder = currentConversion === "binary" ? "Podaj liczbę dziesiętną" : "Podaj liczbę binarną";
 };
 
 const swapConversion = () => {
