@@ -38,6 +38,7 @@ body {
 }
 
 .hint {
+  display: block;
   font-size: 1.5rem;
   color: rgb(255, 255, 255);
   font-weight: bold;
