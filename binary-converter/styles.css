@@ -47,6 +47,7 @@ body {
 }
 
 .result {
+  user-select: text;
   color: rgb(66, 165, 245);
   white-space: nowrap;
   overflow: hidden;
