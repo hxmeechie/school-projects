@@ -9,18 +9,18 @@
   </head>
   <body>
     <div class="container">
-      <p class="hint">Kalkulator kosztu tankowania</p>
+      <p class="hint">⛽ Kalkulator kosztu tankowania</p>
       <form>
-        <p>Rodzaj paliwa:</p>
+        <label for="fuelType">Rodzaj paliwa:</label>
         <select class="styledInput" id="fuelType">
           <option value="gas">Benzyna</option>
           <option value="diesel">Diesel</option>
           <option value="lpg">LPG</option>
         </select>
-        <p>Ilość Paliwa (w litrach):</p>
-        <input type="number" class="styledInput" id="fuelAmount" required />
+        <label for="fuelAmount">Ilość Paliwa (w litrach):</label>
+        <input type="text" class="styledInput" id="fuelAmount" placeholder="Podaj ilość paliwa" />
         <button class="calculateButton" type="button" onclick="calculateCost()">
-          <span class="buttonText">Oblicz koszt<span>
+          <span class="buttonText">Oblicz koszt</span>
         </button>
       </form>
       <h2>Całkowity Koszt Tankowania: <span id="totalCost">0</span> PLN</h2>

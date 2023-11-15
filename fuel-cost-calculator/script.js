@@ -4,14 +4,15 @@ const fuelPrices = {
   lpg: 2.4,
 };
 
-const totalCostSelector = document.getElementById("totalCost");
-
 const calculateCost = () => {
-  const fuelType = document.getElementById("fuelType").value;
   const fuelAmount = document.getElementById("fuelAmount").value;
+
+  if (fuelAmount.length === 0) return;
+
+  const fuelType = document.getElementById("fuelType").value;
 
   const fuelPrice = fuelPrices[fuelType];
   const totalFuelCost = parseFloat(fuelAmount) * fuelPrice;
 
-  totalCostSelector.innerText = totalFuelCost.toFixed(2);
+  document.getElementById("totalCost").innerText = totalFuelCost.toFixed(2);
 };
