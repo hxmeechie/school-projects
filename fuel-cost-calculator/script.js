@@ -14,5 +14,5 @@ const calculateCost = () => {
   const fuelPrice = fuelPrices[fuelType];
   const totalFuelCost = parseFloat(fuelAmount) * fuelPrice;
 
-  document.getElementById("totalCost").innerText = totalFuelCost.toFixed(2);
+  document.getElementById("totalCost").innerText = totalFuelCost.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 };

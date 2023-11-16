@@ -18,12 +18,16 @@
           <option value="lpg">LPG</option>
         </select>
         <label for="fuelAmount">Ilość Paliwa (w litrach):</label>
-        <input type="text" class="styledInput" id="fuelAmount" placeholder="Podaj ilość paliwa" />
+        <input type="number" class="styledInput" id="fuelAmount" placeholder="Podaj ilość paliwa" />
         <button class="calculateButton" type="button" onclick="calculateCost()">
           <span class="buttonText">Oblicz koszt</span>
         </button>
       </form>
-      <h2>Całkowity Koszt Tankowania: <span id="totalCost">0</span> PLN</h2>
+      <h2>Całkowity koszt tankowania:</h2>
+      <p>
+        <span id="totalCost">0</span>
+        PLN
+      </p>
     </div>
     <script src="script.js"></script>
   </body>
