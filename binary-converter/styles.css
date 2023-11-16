@@ -48,6 +48,7 @@ body {
 }
 
 .result {
+  font-size: 1.375em;
   user-select: text;
   color: rgb(66, 165, 245);
   white-space: nowrap;
