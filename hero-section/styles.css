@@ -1,0 +1,229 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  margin: 0px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(18, 18, 18);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+header {
+  background-color: rgb(18, 18, 18);
+  color: rgb(255, 255, 255);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09));
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  position: static;
+}
+
+svg {
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  user-select: none;
+}
+
+.menu-container-one {
+  width: 100%;
+  margin-left: auto;
+  box-sizing: border-box;
+  margin-right: auto;
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.menu-container-two {
+  position: relative;
+  display: flex;
+  justify-content: right;
+  -moz-box-align: center;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 56px;
+}
+
+.a-styled {
+  display: inline-flex;
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-pack: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  background-color: transparent;
+  outline: 0px;
+  border: 0px;
+  margin: 0px;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: inherit;
+  padding: 6px 8px;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  font-weight: 500;
+}
+
+.a-styled:hover {
+  text-decoration: none;
+  background-color: rgb(66, 165, 245);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+}
+
+.a-styled:active {
+  transform: scale(0.98);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+}
+
+.button-span {
+  display: inherit;
+  margin-right: 8px;
+  margin-left: -4px;
+}
+
+.hero-section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: 0;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 1.75;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(144, 202, 249);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 4px 1px 0px rgba(0, 0, 0, 0.14), 0px 4px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.hero-btn:hover {
+  text-decoration: none;
+  background-color: rgb(66, 165, 245);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+}
+
+.hero-btn:active {
+  transform: scale(0.98);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+}
+
+.aboutme-section {
+  background-color: rgb(18, 18, 18);
+  color: rgb(255, 255, 255);
+  padding: 40px 0;
+}
+
+.aboutme-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aboutme-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.aboutme-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 1200px) {
+  .menu-container-one {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 600px) {
+  .menu-container-one {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+}
+
+@media (min-width: 600px) {
+  .menu-container-two {
+    min-height: 64px;
+  }
+}
+
+@media (min-width: 600px) {
+  .menu-container-two {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 0px) {
+  .menu-container-three {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .menu-container-three {
+    display: block;
+  }
+}
