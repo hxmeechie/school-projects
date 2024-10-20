@@ -9,7 +9,7 @@ const CityTabs = () => {
         <TabsTrigger value="atrakcje">Atrakcje</TabsTrigger>
         <TabsTrigger value="gospodarka">Gospodarka</TabsTrigger>
       </TabsList>
-      <TabsContent value="historia" id="historia">
+      <TabsContent value="historia">
         <Card>
           <CardContent className="p-6">
             <h3 className="text-2xl font-semibold mb-4">Historia Goleniowa</h3>
@@ -24,7 +24,7 @@ const CityTabs = () => {
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value="atrakcje" id="atrakcje">
+      <TabsContent value="atrakcje">
         <Card>
           <CardContent className="p-6">
             <h3 className="text-2xl font-semibold mb-4">Atrakcje Goleniowa</h3>
