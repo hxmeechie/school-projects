@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="RGBMixer.MainPage"
+             BackgroundColor="#f0f0f0">
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Label Text="RGB Color Picker"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#4CAF50"/>
+
+            <BoxView x:Name="ColorSquare"
+                     WidthRequest="300"
+                     HeightRequest="300"
+                     BackgroundColor="Blue"/>
+
+        <StackLayout Spacing="10">
+            <Label Text="Czerwony" FontSize="18" TextColor="#FF6347" HorizontalOptions="Center" />
+            <Slider x:Name="RedSlider" Minimum="0" Maximum="255" ValueChanged="OnSliderValueChanged" ThumbColor="#FF6347"/>
+            <Label Text="Zielony" FontSize="18" TextColor="#32CD32" HorizontalOptions="Center" />
+            <Slider x:Name="GreenSlider" Minimum="0" Maximum="255" ValueChanged="OnSliderValueChanged" ThumbColor="#32CD32"/>
+            <Label Text="Niebieski" FontSize="18" TextColor="#1E90FF" HorizontalOptions="Center" />
+            <Slider x:Name="BlueSlider" Minimum="0" Maximum="255" ValueChanged="OnSliderValueChanged" ThumbColor="#1E90FF"/>
+        </StackLayout>
+
+        <Button Text="Resetuj Kolory"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="5"
+                Padding="10"
+                HorizontalOptions="Center"
+                Clicked="OnResetClicked"/>
+        
+        <Button Text="Easter egg"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="5"
+                Padding="10"
+                HorizontalOptions="Center"
+                Clicked="OnEasterEggClicked"/>
+
+
+    </VerticalStackLayout>
+</ContentPage>
