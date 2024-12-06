@@ -4,8 +4,8 @@ namespace DiceGame
 {
     public partial class MainPage : ContentPage
     {
+        private const int DiceCount = 5;
         private readonly Random Rand = new();
-
         private readonly List<int> RollResults = [];
         public ObservableCollection<GameResult> GameHistory { get; set; }
 
@@ -25,13 +25,23 @@ namespace DiceGame
             GameHistory = [];
             BindingContext = this;
         }
+
         private void RollDice(object sender, EventArgs e)
         {
-            int diceCount = 5;
+            var currentRollResults = RollDiceAndUpdateResults();
 
-            List<int> currentRollResults = [];
+            var currentRollPoints = CalculatePoints(currentRollResults);
+            var totalPoints = CalculatePoints(RollResults);
 
-            for (int i = 0; i < diceCount; i++)
+            UpdateDiceDisplay(currentRollResults);
+            UpdateUI(currentRollResults, currentRollPoints, totalPoints);
+        }
+
+        private List<int> RollDiceAndUpdateResults()
+        {
+            var currentRollResults = new List<int>();
+
+            for (int i = 0; i < DiceCount; i++)
             {
                 int diceResult = Rand.Next(1, 7);
 
@@ -40,14 +50,16 @@ namespace DiceGame
                 currentRollResults.Add(diceResult);
             }
 
-            int currentRollPoints = CalculatePoints(currentRollResults);
+            return currentRollResults;
+        }
 
-            int totalPoints = CalculatePoints(RollResults);
-
+        private void UpdateDiceDisplay(List<int> rollResults)
+        {
             DiceContainer.Children.Clear();
 
-            foreach (var result in currentRollResults)
+            foreach (int result in rollResults)
             {
+
                 string imagePath = DiceImages[result];
 
                 var diceImage = new Image
@@ -56,53 +68,60 @@ namespace DiceGame
                     WidthRequest = 50,
                     HeightRequest = 50
                 };
+
                 DiceContainer.Children.Add(diceImage);
             }
-
-            RollResult.Text = $"Wynik tego losowania: {string.Join(", ", currentRollResults)}, co daje wynik: {currentRollPoints} punktów.";
-
-            GameScore.Text = $"Wynik gry: {totalPoints} punktów.";
-
         }
 
-        private static int CalculatePoints(List<int> rollResults)
+        private void UpdateUI(List<int> currentRollResults, int currentRollPoints, int totalPoints)
         {
-            int totalPoints = 0;
+            RolledDices.Text = $"Wylosowane kości: {string.Join(", ", currentRollResults)}";
+            CurrentRollResult.Text = $"Wynik tego losowania: {currentRollPoints} punktów";
+            GameScore.Text = $"Całkowity wynik gry: {totalPoints} punktów";
+        }
 
-            var groups = rollResults.GroupBy((x) => x);
-
-            foreach(var group in groups)
-            {
-                int groupCount = group.Count();
-
-                if (groupCount >= 2)
-                {
-                    totalPoints += group.Key * groupCount;
-                }
-            }
-
-            return totalPoints;
+        private static int CalculatePoints(IEnumerable<int> rollResults)
+        {
+            return rollResults
+                .GroupBy((x) => x)
+                .Where((group) => group.Count() >= 2)
+                .Sum((group) => group.Key * group.Count());
         }
 
         private void ResetGame(object sender, EventArgs e)
         {
-            RollResult.Text = "Wynik tego losowania: ";
-            GameScore.Text = "Wynik gry: 0";
+            AddGameResultToHistory();
+            ClearGameState();
+            ResetUI();
+        }
 
+        private void AddGameResultToHistory()
+        {
             int totalGamePoints = CalculatePoints(RollResults);
 
-            GameResult gameResult = new() { Score = totalGamePoints };
+            var gameResult = new GameResult { Score = totalGamePoints, DiceRollAmount = RollResults.Count };
 
             GameHistory.Add(gameResult);
+        }
 
+        private void ClearGameState()
+        {
             RollResults.Clear();
-
             DiceContainer.Children.Clear();
         }
-    }
-}
 
-public class GameResult
-{
-    public int Score { get; set; }
+        private void ResetUI()
+        {
+            RolledDices.Text = "Wylosowane kości:";
+            CurrentRollResult.Text = "Wynik tego losowania: ";
+            GameScore.Text = "Wynik gry: 0";
+        }
+    }
+
+    public class GameResult
+    {
+        public int Score { get; set; }
+
+        public int DiceRollAmount { get; set; }
+    }
 }
