@@ -13,7 +13,17 @@ import { Calendar } from "@/components/ui/calendar"
 import { cn } from "@/lib/utils"
 
 const App = () => {
-  const [date, setDate] = useState<Date>()
+  const [date, setDate] = useState<Date>();
+
+  const onSubmit = (form: React.SyntheticEvent<HTMLFormElement>) => {
+    form.preventDefault();
+
+    const formData = new FormData(form.currentTarget);
+
+    const userName = formData.get("name");
+
+    alert(`${userName}, dziękujemy za zarejestrowanie w naszym serwisie!`);
+  }
 
   return (
     <ScrollArea className="h-screen">
@@ -23,28 +33,29 @@ const App = () => {
             <CardTitle>Formularz Przykładowy</CardTitle>
             <CardDescription>Proszę wypełnić poniższy formularz.</CardDescription>
           </CardHeader>
+          <form onSubmit={onSubmit}>
           <CardContent className="space-y-6">
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Imię</Label>
-                  <Input id="name" placeholder="Jan Kowalski" />
+                  <Input id="name" name="name" placeholder="Jan Kowalski" required />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Adres e-mail</Label>
-                  <Input id="email" type="email" placeholder="jan@januszex.pl" />
+                  <Input id="email" type="email" placeholder="jan@januszex.pl" required />
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="password">Hasło</Label>
-                <Input id="password" type="password" />
+                <Input id="password" type="password" required />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="country">Kraj</Label>
-                <Select>
+                <Select required>
                   <SelectTrigger id="country">
                     <SelectValue placeholder="Wybierz kraj" />
                   </SelectTrigger>
@@ -69,7 +80,7 @@ const App = () => {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-auto p-0">
-                    <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
+                    <Calendar mode="single" selected={date} onSelect={setDate} initialFocus required />
                   </PopoverContent>
                 </Popover>
               </div>
@@ -77,7 +88,7 @@ const App = () => {
 
             <div className="space-y-2">
               <Label>Płeć</Label>
-              <RadioGroup defaultValue="male">
+              <RadioGroup defaultValue="male" required>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="male" id="male" />
                   <Label htmlFor="male">Mężczyzna</Label>
@@ -94,13 +105,14 @@ const App = () => {
             </div>
 
             <div className="flex items-center space-x-2">
-              <Checkbox id="newsletter" />
+              <Checkbox id="newsletter" required />
               <Label htmlFor="newsletter">Chcę otrzymywać newsletter</Label>
             </div>
           </CardContent>
           <CardFooter>
             <Button className="w-full">Wyślij</Button>
           </CardFooter>
+          </form>
         </Card>
       </div>
     </ScrollArea>
