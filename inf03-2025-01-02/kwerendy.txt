@@ -1,0 +1,10 @@
+SELECT imie, nazwisko FROM osoby WHERE imie LIKE 'A%';
+
+SELECT zadanie, data FROM zadania WHERE zadanie LIKE '%mebli%' ORDER BY data ASC;
+
+SELECT osoby.nazwisko, COUNT(zadania.id_zadania) AS "Liczba zadań" 
+FROM osoby 
+LEFT JOIN zadania ON osoby.id_osoba = zadania.osoba_id 
+GROUP BY osoby.nazwisko;
+
+ALTER TABLE osoby DROP COLUMN telefon;

@@ -1,0 +1,65 @@
+* {
+  font-family: Georgia, serif;
+}
+
+body {
+  text-align: center;
+}
+
+header {
+  padding: 30px;
+  background-image: linear-gradient(to bottom, #a0522d, #f5deb3);
+}
+
+nav {
+  background-color: Wheat;
+  padding: 14px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+a {
+  background-color: Sienna;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px;
+  margin: 20px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+main {
+  background-color: Wheat;
+  padding: 50px;
+}
+
+footer {
+  padding: 30px;
+  background-image: linear-gradient(to bottom, #f5deb3, #a0522d);
+}
+
+table {
+  width: 70%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table,
+td {
+  border: 1px solid Sienna;
+}
+
+td {
+  padding: 5px;
+}
