@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout  Spacing="10">
+            <Label Text="Rejestruj konto"
+                   FontSize="28"
+                   TextColor="White"
+                   BackgroundColor="Teal"
+              />
+            <Label Text="Podaj e-mail:" FontSize="16" TextColor="Black" />
+            <Entry x:Name="EmailEntry" Placeholder="email"  HorizontalOptions="FillAndExpand" />
+
+
+            <Label Text="Podaj hasło:" FontSize="16" TextColor="Black" />
+            <Entry x:Name="PasswordEntry" IsPassword="True" HorizontalOptions="FillAndExpand" />
+
+
+            <Label Text="Powtórz hasło:" FontSize="16" TextColor="Black" />
+            <Entry x:Name="ConfirmPasswordEntry" IsPassword="True" HorizontalOptions="FillAndExpand" />
+
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Button x:Name="ConfirmButton" Text="ZATWIERDŹ" Clicked="OnConfirmClicked" />
+            </HorizontalStackLayout>
+
+
+            <Label 
+                x:Name="MessageLabel" 
+                Text="Autor: 00000000000" 
+                HorizontalOptions="Center" 
+                HorizontalTextAlignment="Center" 
+                FontSize="16" 
+                TextColor="Black" 
+                />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

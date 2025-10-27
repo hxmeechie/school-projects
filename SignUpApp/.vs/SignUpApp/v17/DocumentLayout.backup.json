@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\SignUpApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{65D86578-AB26-490D-9DCB-C1C0E48185CE}|SignUpApp\\SignUpApp.csproj|c:\\users\\user\\source\\repos\\signupapp\\signupapp\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{65D86578-AB26-490D-9DCB-C1C0E48185CE}|SignUpApp\\SignUpApp.csproj|solutionrelative:signupapp\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\SignUpApp\\SignUpApp\\MainPage.xaml",
+              "RelativeDocumentMoniker": "SignUpApp\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\SignUpApp\\SignUpApp\\MainPage.xaml",
+              "RelativeToolTip": "SignUpApp\\MainPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-27T08:19:44.517Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
