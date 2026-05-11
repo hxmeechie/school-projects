@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notepad.MainPage"
+             BackgroundColor="#F2F2F7">
+    <Grid RowDefinitions="Auto, *, Auto">
+        <Border Grid.Row="0" 
+                BackgroundColor="White" 
+                StrokeThickness="0" 
+                HeightRequest="65">
+            <Label Text="NOTATNIK" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold" 
+                   CharacterSpacing="2"
+                   TextColor="#1C1C1E" 
+                   FontSize="16"/>
+        </Border>
+        <Grid Grid.Row="1" Padding="20">
+            <Border Stroke="#D1D1D6" 
+                    StrokeThickness="1" 
+                    BackgroundColor="White">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Editor
+                        Placeholder="Zacznij pisać tutaj..."
+                        AutoSize="Disabled"
+                        FontSize="17"
+                        TextColor="#2C2C2E"
+                        Margin="15"
+                        TextChanged="OnEditorTextChanged" />
+            </Border>
+        </Grid>
+        <Border Grid.Row="2" 
+                BackgroundColor="White" 
+                Stroke="#D1D1D6" 
+                HeightRequest="50">
+            <Grid ColumnDefinitions="*, *" Padding="30,0">
+                <HorizontalStackLayout Grid.Column="0" VerticalOptions="Center" Spacing="6">
+                    <Label Text="ILOŚĆ ZNAKÓW" 
+                                   TextColor="#8E8E93" 
+                                   FontSize="12" 
+                                   FontAttributes="Bold" 
+                                   CharacterSpacing="1" 
+                                   VerticalOptions="Center" />
+                    <Label x:Name="CharCountLabel" 
+                                Text="0" 
+                                FontAttributes="Bold" 
+                                TextColor="#007AFF" 
+                                FontSize="14"
+                                VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" Spacing="6">
+                    <Label Text="ILOŚĆ SŁÓW" 
+                                   TextColor="#8E8E93" 
+                                   FontSize="12" 
+                                   FontAttributes="Bold" 
+                                   CharacterSpacing="1"
+                                   VerticalOptions="Center" />
+                    <Label x:Name="WordCountLabel" 
+                                    Text="0" 
+                                    FontAttributes="Bold" 
+                                    TextColor="#007AFF" 
+                                    FontSize="14" 
+                                    VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>
