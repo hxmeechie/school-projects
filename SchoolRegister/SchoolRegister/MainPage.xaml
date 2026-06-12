@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SchoolRegister.MainPage"
+             BackgroundColor="#F3F4F6">
+
+    <ScrollView>
+        <Grid Padding="24"
+      ColumnDefinitions="*, *"
+      ColumnSpacing="24"
+      RowSpacing="24">
+            <Border Grid.Column="0"
+            BackgroundColor="#FFFFFF"
+            StrokeShape="RoundRectangle 16"
+            StrokeThickness="0"
+            Padding="24"
+            VerticalOptions="Start">
+
+                <VerticalStackLayout Spacing="20">
+                    <Label Text="Nowa Ocena" FontSize="20" FontAttributes="Bold" TextColor="#111827"/>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Przedmiot" FontSize="13" FontAttributes="Bold" TextColor="#4B5563"/>
+                        <Picker x:Name="SubjectPicker"
+                            TitleColor="#9CA3AF"
+                            TextColor="#111827"
+                            >
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Matematyka</x:String>
+                                    <x:String>Język Polski</x:String>
+                                    <x:String>Angielski</x:String>
+                                    <x:String>Fizyka</x:String>
+                                    <x:String>Chemia</x:String>
+                                    <x:String>Historia</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Ocena" FontSize="13" FontAttributes="Bold" TextColor="#4B5563"/>
+                        <Entry x:Name="GradeEntry"
+                           Placeholder="5"
+                           Keyboard="Numeric"
+                           TextColor="#111827"
+                           PlaceholderColor="#9CA3AF"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="6">
+
+                        <Label Text="Ocena ze sprawdzianu?" FontSize="14" FontAttributes="Bold" TextColor="#111827"/>
+                        <Switch x:Name="IsExamSwitch"
+                        Grid.Column="1"
+                        OnColor="#3B82F6"
+                        ThumbColor="#FFFFFF"/>
+                    </VerticalStackLayout>
+
+                    <Label x:Name="ErrorLabel"
+                   TextColor="#EF4444"
+                   FontSize="13"
+                   FontAttributes="Italic"
+                   IsVisible="False"/>
+
+                    <Button Text="Dodaj do dziennika"
+                    Clicked="OnAddGradeClicked"
+                    BackgroundColor="#10B981"
+                    TextColor="#FFFFFF"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    CornerRadius="8"
+                    HeightRequest="48"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Grid.Column="1"
+            BackgroundColor="#FFFFFF"
+            StrokeShape="RoundRectangle 16"
+            StrokeThickness="0"
+            Padding="24">
+
+                <Grid RowDefinitions="Auto, *">
+                    <Label Grid.Row="0"
+                   Text="Dodane Oceny"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#111827"
+                   Margin="0,0,0,16"/>
+
+                    <CollectionView x:Name="GradesCollectionView"
+                            Grid.Row="1"
+                            ItemsSource="{Binding GradesList}">
+                        <CollectionView.EmptyView>
+                            <VerticalStackLayout HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         Padding="0,40"
+                                         Spacing="8">
+                                <Label Text="Brak wpisów w dzienniku"
+                               FontAttributes="Bold"
+                               FontSize="15"
+                               TextColor="#6B7280"
+                               HorizontalOptions="Center"/>
+                                <Label Text="Użyj formularza obok, aby dodać pierwszą ocenę."
+                               FontSize="13"
+                               TextColor="#9CA3AF"
+                               HorizontalOptions="Center"/>
+                            </VerticalStackLayout>
+                        </CollectionView.EmptyView>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="4,12" ColumnDefinitions="*, Auto">
+                                    <VerticalStackLayout Grid.Column="0" Spacing="4" VerticalOptions="Center">
+                                        <Label Text="{Binding Subject}"
+                                       FontSize="16"
+                                       TextColor="#1F2937"/>
+                                        <Border StrokeShape="RoundRectangle 4"
+                                        BackgroundColor="#FEF2F2"
+                                        StrokeThickness="0"
+                                        HorizontalOptions="Start"
+                                        Padding="6,2"
+                                        IsVisible="{Binding IsExam}">
+                                            <Label Text="Sprawdzian"
+                                           FontSize="11"
+                                           TextColor="#EF4444"
+                                           FontAttributes="Bold"/>
+                                        </Border>
+                                    </VerticalStackLayout>
+
+                                    <Label Grid.Column="1"
+                                   Text="{Binding Value}"
+                                   FontSize="22"
+                                   FontAttributes="{Binding FontWeight}"
+                                   TextColor="#111827"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="End"
+                                   Margin="0,0,16,0"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Border>
+        </Grid>
+    </ScrollView>
+</ContentPage>
